@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 
 import PostMessage from "../models/postMessage.js";
+import Report from "../models/report.js";
 
 const router = express.Router();
 
@@ -92,7 +93,7 @@ export const likePost = async (req, res) => {
 export const addReport = async (req, res) => {
   const { report, title, message } = req.body;
 
-  const newReport = new PostMessage({
+  const newReport = new Report({
     title,
     message,
   });
