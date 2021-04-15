@@ -7,6 +7,11 @@ const reportSchema = mongoose.Schema({
     type: Date,
     default: new Date(),
   },
+  branchName: String,
+  coverage: {
+    statement: Number,
+    method: Number,
+  },
 });
 
 const Report = mongoose.model("Report", reportSchema);
