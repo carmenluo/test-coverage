@@ -12,6 +12,7 @@ const reportSchema = mongoose.Schema({
     statement: Number,
     method: Number,
   },
+  prUrl: String,
 });
 
 const Report = mongoose.model("Report", reportSchema);
