@@ -11,6 +11,8 @@ export const addReport = async (req, res) => {
   const newReport = new Report({
     title,
     message,
+    prUrl,
+    branchNumber,
   });
 
   try {
