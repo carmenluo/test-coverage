@@ -6,7 +6,7 @@ import Report from "../models/report.js";
 const router = express.Router();
 
 export const addReport = async (req, res) => {
-  const { report, title, message } = req.body;
+  const { report, title, message, prUrl, branchNumber } = req.body;
 
   const newReport = new Report({
     title,
