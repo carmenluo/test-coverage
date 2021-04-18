@@ -14,13 +14,35 @@ export const addReport = async (req, res) => {
     prUrl,
     branchName,
   });
-  console.log(newReport);
   try {
     await newReport.save();
 
     res.status(201).json(newReport);
   } catch (error) {
     res.status(500).json({ message: error.message });
+  }
+};
+
+export const getPrReports = async (req, res) => {
+  try {
+    const reports = await Report.find({
+      branchName: { $nin: ["develop", "master"] },
+    });
+    res.status(200).json(reports);
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+};
+
+export const getBaseReport = async (req, res) => {
+  try {
+    const reports = await Report.findOne({ branchName: "develop" }).sort({
+      createdAt: -1,
+    });
+
+    res.status(200).json(reports);
+  } catch (error) {
+    res.status(404).json({ message: error.message });
   }
 };
 
