@@ -36,7 +36,7 @@ export const getPrReports = async (req, res) => {
 
 export const getBaseReport = async (req, res) => {
   try {
-    const reports = await Report.findOne({ branchName: "develop" }).sort({
+    const reports = await Report.find({ branchName: "develop" }).sort({
       createdAt: -1,
     });
 
