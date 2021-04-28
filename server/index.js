@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
 import reportRoutes from "./routes/reports.js";
-import testRportRoutes from "./routes/test-reports.js";
+import testReportRoutes from "./routes/test-reports.js";
 
 const app = express();
 dotenv.config();
@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
 app.use("/reports", reportRoutes);
-app.use("/test-reports", testRportRoutes);
+app.use("/test-reports", testReportRoutes);
 app.get("/", (req, res) => {
   res.send("Hello to make report");
 });
