@@ -10,7 +10,7 @@ export const addTestReport = async (req, res) => {
     message,
   });
   try {
-    await newReport.save();
+    await newTestReport.save();
 
     res.status(200).json(newTestReport);
   } catch (error) {
